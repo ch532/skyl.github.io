@@ -10,3 +10,8 @@ theme: minima
 # Optional settings
 plugins:
   - jekyll-feed
+  
+  title: My Jekyll Site
+theme: minima
+description: Monetag verification
+monetag: 6c3c334d584b246a43b4047c71200ce4
