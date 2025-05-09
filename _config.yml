@@ -1,3 +1,8 @@
-title: My Site
-description: A simple Jekyll website
+title: Skyl's Site
+description: My Jekyll-powered website
 theme: minima
+
+# Optional settings
+author: Skyl
+email: your@email.com
+show_excerpts: true
