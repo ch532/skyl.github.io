@@ -8,6 +8,3 @@ This is a personal website built using [Jekyll](https://jekyllrb.com) and hosted
 - Hosted on GitHub Pages
 - Integrated with Monetag for monetization
 
-## Visit the website
-
-[skyl.name.ng](https://skyl.name.ng)
