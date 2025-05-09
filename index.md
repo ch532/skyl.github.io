@@ -3,6 +3,4 @@ layout: default
 title: Home
 ---
 
-# Welcome to My Website
-
-This is the homepage of my Jekyll site integrated with Monetag.
+Welcome to my site! This page is powered by **Jekyll** and hosted on **GitHub Pages**.
