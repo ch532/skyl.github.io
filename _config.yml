@@ -1,0 +1,12 @@
+title: My Jekyll Site
+description: A simple site using Jekyll on GitHub Pages
+baseurl: "" # Leave this blank unless you're using a subpath
+url: "https://skyl.name.ng" # Your custom domain or GitHub Pages URL
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Optional settings
+plugins:
+  - jekyll-feed
