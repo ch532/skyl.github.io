@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="monetag" content="6c3c334d584b246a43b4047c71200ce4">
+  <title>{{ page.title | default: "My Website" }}</title>
+</head>
+<body>
+  <header>
+    <h1>{{ site.title | default: "Welcome to My Jekyll Site" }}</h1>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </footer>
+</body>
+</html>
