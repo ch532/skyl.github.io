@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Monetag Website</title>
 </head>
 <body>
-  <h1>Hello from skyl.name.ng</h1>
-  <p>This is a test website with Monetag ads.</p>
+  <h1>Welcome to My Website</h1>
+  <p>This is a simple static site hosted on GitHub Pages with Monetag ads.</p>
 
-  <!-- Replace this with your actual Monetag ad script -->
-  <script type="text/javascript" src="https://your-monetag-script-url.js"></script>
+  <!-- Monetag ad script -->
+  <script type="text/javascript">
+    (function(s,u,b,i,z){
+      z = s.createElement(u); z.async=1; z.src=b;
+      s.getElementsByTagName(u)[0].parentNode.appendChild(z);
+    })(document,'script','https://example.monetag.com/ad-script.js');
+  </script>
 </body>
 </html>
