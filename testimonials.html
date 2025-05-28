@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials - Skyl P World</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: #0057b8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #003d82;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+    }
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      animation: autoScroll 60s linear infinite;
+    }
+    @keyframes autoScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .testimonial {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      min-width: 280px;
+      transition: transform 0.3s ease;
+    }
+    .testimonial:hover {
+      transform: scale(1.03);
+    }
+    .testimonial h3 {
+      margin-top: 0;
+      color: #0057b8;
+    }
+    .stars {
+      color: #ffc107;
+      margin-bottom: 10px;
+    }
+    .testimonial-form {
+      background: white;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .testimonial-form h2 {
+      text-align: center;
+      color: #0057b8;
+    }
+    .testimonial-form input,
+    .testimonial-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .testimonial-form button {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .testimonial-form button:hover {
+      background: #218838;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #333;
+      color: white;
+    }
+    footer a {
+      color: white;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>What Our Users Are Saying</h1>
+  </header>  <nav>
+    <a href="index.html">Home</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+  </nav>  <main>
+    <div class="slider">
+      <div class="testimonial">
+        <h3>Jane O., Abuja</h3>
+        <div class="stars">★★★★★</div>
+        <p>Skyl P World helped me find the best deals on travel and shopping. Highly recommended!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Michael A., Lagos</h3>
+        <div class="stars">★★★★☆</div>
+        <p>Amazing discounts on Temu and Konga. A true money saver!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Adaeze N., Port Harcourt</h3>
+        <div class="stars">★★★★★</div>
+        <p>Planned my entire trip smoothly with their travel partners. Thank you!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Emeka T., Enugu</h3>
+        <div class="stars">★★★★★</div>
+        <p>Use their Wise link regularly. Fast and affordable!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Bisi K., Ibadan</h3>
+        <div class="stars">★★★★☆</div>
+        <p>Really impressed with how organized this site is. Great user experience.</p>
+      </div>
+      <div class="testimonial">
+        <h3>Olu T., Abeokuta</h3>
+        <div class="stars">★★★★★</div>
+        <p>I use this platform daily for shopping links. Awesome work!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Chika U., Owerri</h3>
+        <div class="stars">★★★★★</div>
+        <p>Saved lots booking hotels with Hotellook from here. Trusted!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Kunle F., Ilorin</h3>
+        <div class="stars">★★★☆☆</div>
+        <p>Good platform, though I wish there were more payment guides.</p>
+      </div>
+      <div class="testimonial">
+        <h3>Mary J., Jos</h3>
+        <div class="stars">★★★★★</div>
+        <p>The flight deals on WayAway blew my mind. Will use again!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Ahmed Y., Kano</h3>
+        <div class="stars">★★★★☆</div>
+        <p>Very helpful website. I found all I needed in one place.</p>
+      </div>
+      <div class="testimonial">
+        <h3>Rita E., Uyo</h3>
+        <div class="stars">★★★★★</div>
+        <p>Customer service was helpful and friendly. Great support!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Felix M., Benin</h3>
+        <div class="stars">★★★☆☆</div>
+        <p>Still exploring, but first impressions are good.</p>
+      </div>
+      <div class="testimonial">
+        <h3>Tosin G., Osogbo</h3>
+        <div class="stars">★★★★☆</div>
+        <p>Easy to find what I need. Layout is clean and mobile-friendly.</p>
+      </div>
+      <div class="testimonial">
+        <h3>Gloria B., Calabar</h3>
+        <div class="stars">★★★★★</div>
+        <p>All the affiliate links work perfectly. Thank you for curating them!</p>
+      </div>
+      <div class="testimonial">
+        <h3>Ifeanyi L., Asaba</h3>
+        <div class="stars">★★★★★</div>
+        <p>This is my go-to site for travel and shopping deals. No regrets!</p>
+      </div>
+    </div><div class="testimonial-form">
+  <h2>Submit Your Testimonial</h2>
+  <form action="#" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="text" name="location" placeholder="Your Location" required />
+    <textarea name="testimonial" rows="4" placeholder="Your feedback..." required></textarea>
+    <button type="submit">Submit Testimonial</button>
+  </form>
+</div>
+
+  </main>  <footer>
+    <p>&copy; 2025 Skyl P World |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Use</a> |
+      <a href="cookies.html">Cookies</a>
+    </p>
+  </footer>
+</body>
+</html>
