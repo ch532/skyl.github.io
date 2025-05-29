@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.body.addEventListener('click', function (e) {
+      const target = e.target.closest('a');
+      if (target && target.href && target.href.includes('http')) {
+        const affiliateDomains = [
+          'temu.to', 'konga.com', 'trip.com', 'tiqets.com', 'kiwitaxi.com', 
+          'hotellook.com', 'wayaway.io', 'ticketnetwork.com', 'wise.com'
+        ];
+        
+        const url = new URL(target.href);
+        if (affiliateDomains.some(domain => url.hostname.includes(domain))) {
+          gtag('event', 'affiliate_click', {
+            event_category: 'Affiliate',
+            event_label: url.hostname
+          });
+        }
+      }
+    });
+  });
+</script>
   
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21YB4ZXTD"></script>
