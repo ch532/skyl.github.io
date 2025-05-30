@@ -19,7 +19,17 @@
       s.parentNode.insertBefore(g,s);
     })();
 
-<script async
+<script>
+window.growthbook_config = window.growthbook_config || {};
+window.growthbook_config.trackingCallback = (experiment, result) => {
+  // This is where you would send an event to your analytics provider
+  console.log("Viewed Experiment", {
+    experimentId: experiment.key,
+    variationId: result.key
+  });
+};
+</script>
+    <script async
   data-api-host="https://cdn.growthbook.io"
   data-client-key="sdk-0lPyJUlJgH8XYKNG"
   src="https://cdn.jsdelivr.net/npm/@growthbook/growthbook/dist/bundles/auto.min.js"
