@@ -281,17 +281,28 @@ window.growthbook_config.trackingCallback = (experiment, result) => {
   </div>
 </section>
 
-    <!-- Twitter Pixel Base Code with PageView Tracking -->
-<script>
-  !function(e,t,n,s,u,a){
-    e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments)},
-    s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,
-    u.src='https://static.ads-twitter.com/uwt.js',
-    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))
-  }(window,document,'script');
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const affiliateLinks = document.querySelectorAll(
+      'a[href*="temu.to/k/e867tq2m91e"], ' +
+      'a[href*="konga.com/?k_id=Connect"], ' +
+      'a[href*="trip.tp.st/nXpiE4v9"], ' +
+      'a[href*="tiqets.tp.st/cWFdhwIR"], ' +
+      'a[href*="kiwitaxi.tp.st/DdGbpaTJ"], ' +
+      'a[href*="hotellook.tp.st/fj3cl1gZ"], ' +
+      'a[href*="wayaway.tp.st/F7QPWSri"], ' +
+      'a[href*="ticketnetwork.tp.st/JP4Jumu3"], ' +
+      'a[href*="wise.com/invite/mic/chibuikeo110"]'
+    );
 
-  twq('config','pwuw5');   
-  twq('track','PageView');       
+    affiliateLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        fbq('trackCustom', 'AffiliateClick', {
+          url: link.href
+        });
+      });
+    });
+  });
 </script>
 
   </main>  <footer>
