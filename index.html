@@ -306,48 +306,13 @@ window.growthbook_config.trackingCallback = (experiment, result) => {
   });
 </script>
 
-    <script>
-  // This grabs the click ID from the URL and stores it in a cookie or localStorage for tracking
-  (function() {
-    function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[]/g, '\\$&');
-      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-          results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    var clickId = getParameterByName('clickid'); // or whatever param Adcash uses
-    if (clickId) {
-      // Save it for later use (localStorage or cookie)
-      localStorage.setItem('adcash_clickid', clickId);
-      // Or use cookies if you prefer
-      // document.cookie = 'adcash_clickid=' + clickId + '; path=/';
-    }
-  })();
-</script>
-<script>
-  // This grabs the click ID from the URL and stores it in a cookie or localStorage for tracking
-  (function() {
-    function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[]/g, '\\$&');
-      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-          results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    var clickId = getParameterByName('clickid'); // or whatever param Adcash uses
-    if (clickId) {
-      // Save it for later use (localStorage or cookie)
-      localStorage.setItem('adcash_clickid', clickId);
-      // Or use cookies if you prefer
-      // document.cookie = 'adcash_clickid=' + clickId + '; path=/';
-    }
+    <!-- BidVertiser Conversion Tracking Script -->
+<script type="text/javascript">
+  (function(){
+    var bidvertiser_conversion_id = 'YOUR_CONVERSION_ID'; // Replace with your actual ID
+    var script = document.createElement('script');
+    script.src = 'https://www.bidvertiser.com/conversion/script.js?id=' + bidvertiser_conversion_id;
+    document.head.appendChild(script);
   })();
 </script>
     
