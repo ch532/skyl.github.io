@@ -319,26 +319,9 @@ window.growthbook_config.trackingCallback = (experiment, result) => {
     }
   }
 
-  if ('IntersectionObserver' in window) {
-    let impressionTracked = false;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !impressionTracked) {
-          trackPlausibleImpression();
-          trackMetaImpression();
-          impressionTracked = true;
-          observer.disconnect();
-        }
-      });
-    });
-
-    observer.observe(document.getElementById('affiliate-banner'));
-  } else {
-    // Fallback to fire immediately if Intersection Observer not supported
-    trackPlausibleImpression();
-    trackMetaImpression();
-  }
+  // Fire impression tracking immediately on page load
+  trackPlausibleImpression();
+  trackMetaImpression();
 </script>
 
   </main>  <footer>
