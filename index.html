@@ -306,16 +306,41 @@ window.growthbook_config.trackingCallback = (experiment, result) => {
   });
 </script>
 
-    <!-- BidVertiser Conversion Tracking Script -->
-<script type="text/javascript">
-  (function(){
-    var bidvertiser_conversion_id = 'YOUR_CONVERSION_ID'; // Replace with your actual ID
-    var script = document.createElement('script');
-    script.src = 'https://www.bidvertiser.com/conversion/script.js?id=' + bidvertiser_conversion_id;
-    document.head.appendChild(script);
-  })();
+    <script>
+  function trackPlausibleImpression() {
+    if (typeof plausible === 'function') {
+      plausible('AffiliateImpression');
+    }
+  }
+
+  function trackMetaImpression() {
+    if (typeof fbq === 'function') {
+      fbq('trackCustom', 'AffiliateImpression');
+    }
+  }
+
+  if ('IntersectionObserver' in window) {
+    let impressionTracked = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !impressionTracked) {
+          trackPlausibleImpression();
+          trackMetaImpression();
+          impressionTracked = true;
+          observer.disconnect();
+        }
+      });
+    });
+
+    observer.observe(document.getElementById('affiliate-banner'));
+  } else {
+    // Fallback to fire immediately if Intersection Observer not supported
+    trackPlausibleImpression();
+    trackMetaImpression();
+  }
 </script>
-    
+
   </main>  <footer>
     <p>Some links on this site are affiliate links. We may earn a commission from qualifying purchases at no extra cost to you.</p>
     <p>This website participates in affiliate marketing programs. Logos and trademarks belong to their respective owners.</p>
