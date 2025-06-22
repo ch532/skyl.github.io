@@ -97,6 +97,60 @@
   allowtransparency="true"
 ></iframe>
   
+<!-- PartneroJS -->
+<script>
+    (function(p,t,n,e,r,o){ p['__partnerObject']=r;function f(){
+    var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
+    f.q=f.q||[];p[r]=p[r]||f.bind(f.q);p[r].q=p[r].q||f.q;o=t.createElement(n);
+    var _=t.getElementsByTagName(n)[0];o.async=1;o.src=e+'?v'+(~~(new Date().getTime()/1e6));
+    _.parentNode.insertBefore(o,_);})(window, document, 'script', 'https://app.partnero.com/js/universal.js', 'po');
+    po('settings', 'assets_host', 'https://assets.partnero.com');
+    po('program', 'SZNE3FT1', 'load');
+</script>
+<!-- End PartneroJS -->
+
+<script>
+(function() {
+        const cookieValue = (document.cookie.match(/(^| )partnero_partner=([^;]+)/) || [])[2];
+
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        if (cookieValue) {
+            const transactionID = getURLParameter('tx') || getURLParameter('txn_id');
+            const amount = getURLParameter('amt') || getURLParameter('payment_gross');
+            const payerID = getURLParameter('PayerID') || getURLParameter('payer_id');
+            const payerEmail = getURLParameter('payer_email');
+            const firstName = getURLParameter('first_name');
+            const lastName = getURLParameter('last_name');
+
+            if (transactionID && amount && payerEmail) {
+                po('transactions', 'create', {
+                    data: {
+                        key: 'paypal_' + transactionID,
+                        amount: amount,
+                        action: 'sale',
+                        customer: {
+                            key:  payerID || payerEmail,
+                            email: payerEmail,
+                            name: `${firstName || ''} ${lastName || ''}`.trim()
+                        }
+                    },
+                    options: {
+                        create_customer: true
+                    }
+                });
+            }
+        }
+    })();
+</script>
+  
+  <script>
+po('integration', 'universal', null);
+</script>
+  
   <!-- Cookie Consent Banner -->
   <div id="cookie-banner">
     <p>We use cookies to ensure you get the best experience on our website. 
