@@ -3,9 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Page 1 - Skyl Blog</title>
+  <title>Page 1 - Skyl P World</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 10px 20px;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    nav {
+      margin-top: 5px;
+    }
+    nav a {
+      color: #ffd700;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+    .welcome {
+      padding: 15px 20px;
+      background: #f4f4f4;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+    footer {
+      padding: 15px 20px;
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+    #cookie-banner {
+      background: #000;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    #cookie-banner a {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+    #cookie-banner button {
+      margin-left: 10px;
+      background: #ffd700;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,37 +78,33 @@
     </nav>
   </header>
 
+  <!-- Welcome Message -->
+  <div class="welcome">Welcome to Skyl P World</div>
+
   <!-- Cookie Consent Banner -->
   <div id="cookie-banner">
     <p>We use cookies to ensure you get the best experience on our website. 
       <a href="/privacy.html">Learn more</a>
+      <button onclick="acceptCookies()">Got it</button>
     </p>
-    <button onclick="acceptCookies()">Got it</button>
   </div>
-
-  <!-- Homepage Content -->
-  <section class="hero">
-    <h1>Welcome to Skyl Blog</h1>
-    <p>This is the homepage (Page 1). Use the navigation above to explore other pages.</p>
-  </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Skyl Blog | Powered by Chyke22</p>
+    <p>&copy; 2025 Skyl P World | Powered by Chyke22</p>
   </footer>
 
-  <!-- Cookie Consent Script -->
+  <!-- Cookie Script -->
   <script>
     function acceptCookies() {
       document.getElementById("cookie-banner").style.display = "none";
       localStorage.setItem("cookiesAccepted", "true");
     }
-
     window.onload = function() {
       if (localStorage.getItem("cookiesAccepted") === "true") {
         document.getElementById("cookie-banner").style.display = "none";
       }
-    }
+    };
   </script>
 
 </body>
