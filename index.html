@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Connect Gold Arcade</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connect Gold Games</title>
   <style>
     body {
       margin: 0;
@@ -18,8 +18,27 @@
       padding: 20px;
       font-size: 28px;
       font-weight: bold;
-      text-transform: uppercase;
       color: #ffd700;
+    }
+
+    .navbar {
+      background: #000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .navbar a {
+      color: #0ff;
+      text-decoration: none;
+      margin: 8px 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
     }
 
     .banner {
@@ -32,7 +51,7 @@
     }
 
     h2 {
-      margin-top: 40px;
+      margin-top: 30px;
       color: #0ff;
     }
 
@@ -45,13 +64,13 @@
       margin: 10px 0;
     }
 
-    a {
+    a.game-link {
       color: #00ff99;
       text-decoration: none;
       font-size: 20px;
     }
 
-    a:hover {
+    a.game-link:hover {
       text-decoration: underline;
     }
 
@@ -66,27 +85,41 @@
 
   <header>🎮 Connect Gold Game Arcade</header>
 
-  <div class="banner">
-    <!-- Ad slot: You can paste your AdSense or AdMob banner code here -->
-    🔥 Your Ad Could Be Here – Place your banner!
+  <!-- 🌐 Game Page Navigation -->
+  <div class="navbar">
+    <a href="games/3d-bowling.html">3D Bowling</a>
+    <a href="games/moto-x3m.html">Moto X3M</a>
+    <a href="games/street-ball.html">Street Ball</a>
+    <a href="games/table-tennis.html">Table Tennis</a>
+    <a href="games/street-racing.html">Street Racing</a>
+    <a href="games/drift-dudes.html">Drift Dudes</a>
+    <a href="games/3d-basketball.html">3D Basketball</a>
+    <a href="games/8-ball.html">8 Ball</a>
+    <a href="games/archery.html">Archery</a>
+    <a href="games/tower-crash.html">Tower Crash</a>
   </div>
 
-  <h2>🎯 Featured Games</h2>
+  <div class="banner">
+    <!-- Insert AdMob or banner ad code here -->
+    🔥 Advertise Here – Your Banner Placeholder
+  </div>
+
+  <h2>🎯 Choose a Game to Play</h2>
   <ul>
-    <li><a href="games/3d-bowling.html">3D Bowling</a></li>
-    <li><a href="games/moto-x3m.html">Moto X3M Pool Party</a></li>
-    <li><a href="games/street-ball.html">Street Ball Star</a></li>
-    <li><a href="games/table-tennis.html">Table Tennis Pro</a></li>
-    <li><a href="games/street-racing.html">Real Street Racing</a></li>
-    <li><a href="games/drift-dudes.html">Drift Dudes</a></li>
-    <li><a href="games/3d-basketball.html">3D Basketball</a></li>
-    <li><a href="games/8-ball.html">8 Ball Billiards Classic</a></li>
-    <li><a href="games/archery.html">Archery World Tour</a></li>
-    <li><a href="games/tower-crash.html">Tower Crash 3D</a></li>
+    <li><a class="game-link" href="games/3d-bowling.html">🎳 3D Bowling</a></li>
+    <li><a class="game-link" href="games/moto-x3m.html">🏍️ Moto X3M Pool Party</a></li>
+    <li><a class="game-link" href="games/street-ball.html">🏀 Street Ball Star</a></li>
+    <li><a class="game-link" href="games/table-tennis.html">🏓 Table Tennis Pro</a></li>
+    <li><a class="game-link" href="games/street-racing.html">🚗 Real Street Racing</a></li>
+    <li><a class="game-link" href="games/drift-dudes.html">🚙 Drift Dudes</a></li>
+    <li><a class="game-link" href="games/3d-basketball.html">🏀 3D Basketball</a></li>
+    <li><a class="game-link" href="games/8-ball.html">🎱 8 Ball Billiards Classic</a></li>
+    <li><a class="game-link" href="games/archery.html">🏹 Archery World Tour</a></li>
+    <li><a class="game-link" href="games/tower-crash.html">🏰 Tower Crash 3D</a></li>
   </ul>
 
   <footer>
-    &copy; 2025 Connect Gold. Built for entertainment by Chyke22.
+    &copy; 2025. Powered by <strong>Skyl P World</strong>.
   </footer>
 
 </body>
