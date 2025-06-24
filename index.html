@@ -1,125 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Connect Gold Games</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connect Gold - Travel & Deals</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: #fff;
-      text-align: center;
-    }
-
-    header {
-      background: #222;
-      padding: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      color: #ffd700;
-    }
-
-    .navbar {
-      background: #000;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 10px;
-    }
-
-    .navbar a {
-      color: #0ff;
-      text-decoration: none;
-      margin: 8px 10px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .navbar a:hover {
-      text-decoration: underline;
-    }
-
-    .banner {
-      margin: 20px auto;
-      background: #444;
-      padding: 10px;
-      color: #ccc;
-      width: 90%;
-      max-width: 728px;
-    }
-
-    h2 {
-      margin-top: 30px;
-      color: #0ff;
-    }
-
-    ul {
-      list-style: none;
       padding: 0;
     }
-
-    li {
-      margin: 10px 0;
+    header {
+      background: #f9f9f9;
+      padding: 10px;
+      text-align: center;
     }
-
-    a.game-link {
-      color: #00ff99;
+    iframe.adbanner {
+      width: 100%;
+      height: 100px;
+      border: none;
+    }
+    nav {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
       text-decoration: none;
-      font-size: 20px;
+      font-weight: bold;
     }
-
-    a.game-link:hover {
-      text-decoration: underline;
+    .widget-container {
+      padding: 10px;
     }
-
     footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #aaa;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
     }
   </style>
 </head>
 <body>
 
-  <header>🎮 Connect Gold Game Arcade</header>
+  <!-- 🔝 AdMob Banner Area -->
+  <header>
+    <iframe class="adbanner" src="admob-banner.html"></iframe>
+  </header>
 
-  <!-- 🌐 Game Page Navigation -->
-  <div class="navbar">
-    <a href="3d-bowling.html">3D Bowling</a>
-    <a href="moto-x3m.html">Moto X3M</a>
-    <a href="street-ball.html">Street Ball</a>
-    <a href="games/table-tennis.html">Table Tennis</a>
-    <a href="street-racing.html">Street Racing</a>
-    <a href="drift-dudes.html">Drift Dudes</a>
-    <a href="3d-basketball.html">3D Basketball</a>
-    <a href="8-ball.html">8 Ball</a>
-    <a href="archery.html">Archery</a>
-    <a href="tower-crash.html">Tower Crash</a>
-  </div>
+  <!-- 🔗 Navigation Links -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="page1.html">Page 1</a>
+    <a href="page2.html">Page 2</a>
+    <a href="page3.html">Page 3</a>
+  </nav>
 
-  <div class="banner">
-    <!-- Insert AdMob or banner ad code here -->
-    🔥 Advertise Here – Your Banner Placeholder
-  </div>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connect Gold - Travel & Deals</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #f9f9f9;
+      padding: 10px;
+      text-align: center;
+    }
+    iframe.adbanner {
+      width: 100%;
+      height: 100px;
+      border: none;
+    }
+    nav {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .widget-container {
+      padding: 10px;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
 
-  <h2>🎯 Choose a Game to Play</h2>
-  <ul>
-    <li><a class="game-link" href="3d-bowling.html">🎳 3D Bowling</a></li>
-    <li><a class="game-link" href="moto-x3m.html">🏍️ Moto X3M Pool Party</a></li>
-    <li><a class="game-link" href="street-ball.html">🏀 Street Ball Star</a></li>
-    <li><a class="game-link" href="table-tennis.html">🏓 Table Tennis Pro</a></li>
-    <li><a class="game-link" href="street-racing.html">🚗 Real Street Racing</a></li>
-    <li><a class="game-link" href="drift-dudes.html">🚙 Drift Dudes</a></li>
-    <li><a class="game-link" href="3d-basketball.html">🏀 3D Basketball</a></li>
-    <li><a class="game-link" href="8-ball.html">🎱 8 Ball Billiards Classic</a></li>
-    <li><a class="game-link" href="archery.html">🏹 Archery World Tour</a></li>
-    <li><a class="game-link" href="tower-crash.html">🏰 Tower Crash 3D</a></li>
-  </ul>
+  <!-- 🔝 AdMob Banner Area -->
+  <header>
+    <iframe class="adbanner" src="admob-banner.html"></iframe>
+  </header>
 
+  <!-- 🔗 Navigation Links -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="page1.html">Page 1</a>
+    <a href="page2.html">Page 2</a>
+    <a href="page3.html">Page 3</a>
+  </nav>
+
+<script src="https://www.cryptohopper.com/widgets/js/script"></script>
+
+<div class="cryptohopper-web-widget" data-id="6"></div>
+  
+  <script async src="https://tpemb.com/content?trs=421109&shmarker=589064&locale=en&curr=USD&powered_by=true&border_radius=0&plain=true&color_button=%232681ff&color_button_text=%23ffffff&color_border=%232681ff&promo_id=4132&campaign_id=121" charset="utf-8"></script>
+
+<script>
+        (function(d, s, id) {
+            if (d.getElementById(id)) {
+                if (window.__TOMORROW__) {
+                    window.__TOMORROW__.renderWidget();
+                }
+                return;
+            }
+            const fjs = d.getElementsByTagName(s)[0];
+            const js = d.createElement(s);
+            js.id = id;
+            js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+            fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'tomorrow-sdk');
+        </script>
+
+        <div class="tomorrow"
+           data-location-id="077002,050388,122795,044856,131059,019332"
+           data-language="EN"
+           data-unit-system="METRIC"
+           data-skin="light"
+           data-widget-type="aqi6"
+           style="padding-bottom:22px;position:relative;"
+        >
+          <a
+            href="https://weather.tomorrow.io/"
+            rel="nofollow noopener noreferrer"
+            target="_blank"
+            style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;"
+          >
+            <img
+              alt="Powered by Tomorrow.io"
+              src="https://weather-website-client.tomorrow.io/img/powered-by.svg"
+              width="250"
+              height="18"
+            />
+          </a>
+        </div>
+  
+  <!-- 👣 Footer -->
   <footer>
-    &copy; 2025. Powered by <strong>Skyl P World</strong>.
+    Powered by Skyl P World
+  </footer>
+
+</body>
+</html>
+
+  <!-- 👣 Footer -->
+  <footer>
+    Powered by Skyl P World
   </footer>
 
 </body>
