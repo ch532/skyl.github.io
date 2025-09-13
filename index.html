@@ -28,57 +28,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Connect Gold - Travel & Deals</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #f9f9f9;
-      padding: 10px;
-      text-align: center;
-    }
-    iframe.adbanner {
-      width: 100%;
-      height: 100px;
-      border: none;
-    }
-    nav {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .widget-container {
-      padding: 10px;
-    }
-    footer {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 12px;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- 🔝 AdMob Banner Area -->
+<script async src="https://cdn.start.io/sdk/latest/start.js"></script>
   
-
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Connect Gold - Travel & Deals</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -119,6 +70,35 @@
   </style>
 </head>
 <body>
+
+  <!-- Start.io Ad Container for Banner -->
+<div id="banner" style="width:100%; height:90px;"></div>
+
+<!-- Start.io Script -->
+<script type="text/javascript">
+  (function() {
+    var s = document.createElement('script');
+    s.src = "https://cdn.start.io/sdk/start.min.js"; // Example SDK URL
+    s.async = true;
+    s.onload = function() {
+      // Initialize Start.io
+      startio.init({
+        appId: "YOUR_APP_ID",   // Replace with your Start.io app ID
+        banner: { container: "banner" },
+        interstitial: { autoShow: true },
+        rewarded: { autoShow: true }
+      });
+
+      // Optional: Listen to events
+      startio.on('rewardedCompleted', function(info) {
+        console.log("Reward granted:", info);
+      });
+    };
+    document.head.appendChild(s);
+  })();
+</script>
+
+  
 
   
 
@@ -130,119 +110,10 @@
     <a href="page3.html">Page 3</a>
   </nav>
 
-<script src="https://www.cryptohopper.com/widgets/js/script"></script>
 
-<div class="cryptohopper-web-widget" data-id="6"></div>
-  
-  <script async src="https://tpemb.com/content?trs=421109&shmarker=589064&locale=en&curr=USD&powered_by=true&border_radius=0&plain=true&color_button=%232681ff&color_button_text=%23ffffff&color_border=%232681ff&promo_id=4132&campaign_id=121" charset="utf-8"></script>
-
-<script>
-        (function(d, s, id) {
-            if (d.getElementById(id)) {
-                if (window.__TOMORROW__) {
-                    window.__TOMORROW__.renderWidget();
-                }
-                return;
-            }
-            const fjs = d.getElementsByTagName(s)[0];
-            const js = d.createElement(s);
-            js.id = id;
-            js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
-
-            fjs.parentNode.insertBefore(js, fjs);
-        })(document, 'script', 'tomorrow-sdk');
-        </script>
-
-        <div class="tomorrow"
-           data-location-id="077002,050388,122795,044856,131059,019332"
-           data-language="EN"
-           data-unit-system="METRIC"
-           data-skin="light"
-           data-widget-type="aqi6"
-           style="padding-bottom:22px;position:relative;"
-        >
-          <a
-            href="https://weather.tomorrow.io/"
-            rel="nofollow noopener noreferrer"
-            target="_blank"
-            style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;"
-          >
-            <img
-              alt="Powered by Tomorrow.io"
-              src="https://weather-website-client.tomorrow.io/img/powered-by.svg"
-              width="250"
-              height="18"
-            />
-          </a>
-        </div>
-
-<!-- start feedwind code --> <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" preloader-text="Loading" data-fw-param="173745/"></script> <!-- end feedwind code -->
-
-<!-- start sw-rss-feed code --> 
-<script type="text/javascript"> 
-<!-- 
-rssfeed_url = new Array(); 
-rssfeed_url[0]="https://news.google.com/rss/search?q=Nigeria&hl=en-NG&gl=NG&ceid=NG:en"; rssfeed_url[1]="https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US:en"; rssfeed_url[2]="https://alltop.com/rss"; rssfeed_url[3]="https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US:en"; rssfeed_url[4]="https://www.skysports.com/rss/12040";  
-rssfeed_frame_width="230"; 
-rssfeed_frame_height="260"; 
-rssfeed_scroll="on"; 
-rssfeed_scroll_step="6"; 
-rssfeed_scroll_bar="off"; 
-rssfeed_target="_blank"; 
-rssfeed_font_size="12"; 
-rssfeed_font_face=""; 
-rssfeed_border="on"; 
-rssfeed_css_url="https://feed.surfing-waves.com/css/style4.css"; 
-rssfeed_title="on"; 
-rssfeed_title_name=""; 
-rssfeed_title_bgcolor="#3366ff"; 
-rssfeed_title_color="#fff"; 
-rssfeed_title_bgimage=""; 
-rssfeed_footer="off"; 
-rssfeed_footer_name="rss feed"; 
-rssfeed_footer_bgcolor="#fff"; 
-rssfeed_footer_color="#333"; 
-rssfeed_footer_bgimage=""; 
-rssfeed_item_title_length="50"; 
-rssfeed_item_title_color="#666"; 
-rssfeed_item_bgcolor="#fff"; 
-rssfeed_item_bgimage=""; 
-rssfeed_item_border_bottom="on"; 
-rssfeed_item_source_icon="off"; 
-rssfeed_item_date="off"; 
-rssfeed_item_description="on"; 
-rssfeed_item_description_length="120"; 
-rssfeed_item_description_color="#666"; 
-rssfeed_item_description_link_color="#333"; 
-rssfeed_item_description_tag="off"; 
-rssfeed_no_items="0"; 
-rssfeed_cache = "66cd2c2c78ca755bf48467c3b037a994"; 
-//--> 
-</script> 
-<script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script> 
-<!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. --> 
-<div style="color:#ccc;font-size:10px; text-align:right; width:230px;">powered by <a href="https://surfing-waves.com" rel="noopener" target="_blank" style="color:#ccc;">Surfing Waves</a></div> 
-<!-- end sw-rss-feed code -->
   
   
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Show AdMob Banner Ad
-    median?.admob?.showBanner();
-
-    // Show Interstitial Ad if ready
-    median?.admob?.showInterstitialIfReady();
-
-    // Show Rewarded Ad if ready
-    median?.admob?.showRewardedIfReady();
-  });
-
-  // Optional: Add event listeners for ad events (if supported)
-  document.addEventListener('medianAdEvent', function(event) {
-    console.log('Median Ad Event:', event.detail);
-    // event.detail can have info like {type: 'interstitial', status: 'loaded'|'failed'|'closed' }
-  });
-</script>
+  
 </body>
 </html>
 
