@@ -141,6 +141,182 @@ window.SDK_OPTIONS = {
         fjs.parentNode.insertBefore(js, fjs);
     }
 })(document, 'script', 'gamemonetize-sdk');
+
+  import * as THREE from 'three';
+
+let scene, camera, renderer, player, playerMesh, playerBox;
+let lanes = [-2,0,2], playerLane = 1, moveTargetLane = 1;
+let moveLerp = 0, moveSpeed = 0.18;
+let leftPressed = false, rightPressed = false;
+let obstacles = [], obstaclePool = [], obstacleBoxes = [];
+let relicShards = [], relicPool = [], relicBoxes = [];
+let scrollZ = 0, gameSpeed = 0.22, gameTime = 0, coins = 0;
+let nextObstacleTime = 0, nextRelicTime = 0;
+let gameState = 'start', lastCoins = 0;
+let clock = new THREE.Clock();
+
+// =========================
+// Helper functions for SDK
+// =========================
+window.pauseGame = () => {
+    if(gameState === 'play') gameState = 'paused';
+};
+window.resumeGame = () => {
+    if(gameState === 'paused') gameState = 'play';
+};
+
+function showInterstitialAd() {
+    console.log("Showing interstitial ad...");
+    if(window.sdk && typeof window.sdk.showBanner === 'function'){
+        window.sdk.showBanner();
+    }
+    gameState = 'ad_showing';
+    setTimeout(() => {
+        if(gameState === 'ad_showing') gameState = 'gameover';
+    }, 3000);
+}
+
+// =========================
+// Game Initialization
+// =========================
+function init() {
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x10141b);
+
+    camera = new THREE.PerspectiveCamera(65, window.innerWidth/window.innerHeight, 0.1, 60);
+    camera.position.set(0, 2.5, 6);
+    camera.lookAt(0,0,0);
+
+    renderer = new THREE.WebGLRenderer({antialias:true});
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Lights
+    const ambient = new THREE.AmbientLight(0x888888, 1.1);
+    scene.add(ambient);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.85);
+    dirLight.position.set(5,10,6);
+    scene.add(dirLight);
+
+    // Player
+    player = new THREE.Group();
+    const playerMat = new THREE.MeshPhongMaterial({color:0x8ed9e3, shininess:80, emissive:0x0e3d5d, emissiveIntensity:0.12});
+    playerMesh = new THREE.Mesh(new THREE.BoxGeometry(1,1,1), playerMat);
+    player.add(playerMesh);
+    player.position.set(lanes[playerLane],0.5,0);
+    scene.add(player);
+    playerBox = new THREE.Box3();
+
+    // Floor & Walls
+    const floorMat = new THREE.MeshStandardMaterial({color:0x23272e, roughness:0.6, metalness:0.25});
+    const floor = new THREE.Mesh(new THREE.BoxGeometry(6,0.1,80), floorMat);
+    floor.position.set(0,0,30);
+    scene.add(floor);
+
+    const wallMat = new THREE.MeshStandardMaterial({color:0x181b21, roughness:0.7, metalness:0.15});
+    const leftWall = new THREE.Mesh(new THREE.BoxGeometry(0.2,4,80), wallMat);
+    leftWall.position.set(-3,2,30);
+    scene.add(leftWall);
+    const rightWall = new THREE.Mesh(new THREE.BoxGeometry(0.2,4,80), wallMat);
+    rightWall.position.set(3,2,30);
+    scene.add(rightWall);
+
+    // Event listeners
+    window.addEventListener('resize', onWindowResize);
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('keyup', onKeyUp);
+
+    resetGame();
+    animate();
+}
+
+// =========================
+// Event handlers
+// =========================
+function onWindowResize() {
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function onKeyDown(e){
+    if(gameState === 'start' && e.code === 'Space') gameState = 'play';
+    if(gameState === 'play'){
+        if(e.code==='ArrowLeft'||e.code==='KeyA') leftPressed=true;
+        if(e.code==='ArrowRight'||e.code==='KeyD') rightPressed=true;
+    }
+    if(gameState==='gameover' && e.code==='KeyR') resetGame();
+}
+
+function onKeyUp(e){
+    if(gameState!=='play') return;
+    if(e.code==='ArrowLeft'||e.code==='KeyA') leftPressed=false;
+    if(e.code==='ArrowRight'||e.code==='KeyD') rightPressed=false;
+}
+
+function resetGame(){
+    gameState='start';
+    playerLane = 1;
+    moveTargetLane = 1;
+    moveLerp = 0;
+    player.position.set(lanes[playerLane],0.5,0);
+    scrollZ = 0;
+    gameSpeed = 0.22;
+    gameTime = 0;
+    coins = 0;
+    lastCoins = 0;
+    nextObstacleTime = 0.8;
+    nextRelicTime = 0.5;
+    obstacles.forEach(o=>scene.remove(o.mesh));
+    relicShards.forEach(r=>scene.remove(r.mesh));
+    obstacles=[]; relicShards=[];
+    obstaclePool=[]; relicPool=[];
+    obstacleBoxes=[]; relicBoxes=[];
+}
+
+// =========================
+// Game Loop
+// =========================
+function animate(){
+    requestAnimationFrame(animate);
+    let dt = Math.min(clock.getDelta(),0.05);
+
+    if(gameState==='play'){
+        gameTime+=dt;
+        gameSpeed = 0.22 + Math.min(0.48, gameTime*0.025);
+        scrollZ+=gameSpeed;
+
+        if(leftPressed) tryMoveLane(-1);
+        if(rightPressed) tryMoveLane(1);
+
+        // Update player position
+        if(moveTargetLane!==playerLane){
+            let step = moveSpeed*dt*60;
+            moveLerp -= step;
+            if(moveLerp<=0){ moveLerp=0; playerLane=moveTargetLane; }
+            player.position.x = THREE.MathUtils.lerp(lanes[playerLane], lanes[moveTargetLane], moveLerp);
+        } else player.position.x = lanes[playerLane];
+
+        // Floor and walls move
+        // (optional: add obstacles/relic spawn functions)
+    }
+
+    renderer.render(scene,camera);
+}
+
+// Lane movement helper
+function tryMoveLane(dir){
+    if(moveTargetLane===playerLane && moveLerp===0){
+        let next = playerLane+dir;
+        if(next>=0 && next<=2){
+            moveTargetLane=next;
+            moveLerp=1;
+        }
+    }
+}
+
+init();
 </script>
 
 <!-- Three.js Game -->
@@ -149,22 +325,4 @@ window.SDK_OPTIONS = {
 </body>
 </html>
   
-
-  <!-- 🔗 Navigation Links -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="page1.html">Page 1</a>
-    <a href="page2.html">Page 2</a>
-    <a href="page3.html">Page 3</a>
-  </nav>
-
-
-  
-  
-  
-</body>
-</html>
-
-
-
 
